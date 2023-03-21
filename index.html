@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tela de cadastro</title>
+</head>
+
+<body>
+    <div class="signUpContainer">
+        <form onkeyup="formValidation()" class="formContainer">
+            <h1>Criar conta</h1>
+            <input id="name" type="text" placeholder="Nome">
+            <input id="email" type="email" placeholder="Email">
+            <input id="telephone" type="text" placeholder="Telefone" maxlength="16" onkeypress="telephoneMask()">
+            <input autocomplete="none" id="password" type="text" placeholder="Senha">
+            <input autocomplete="none" id="confirmPassword" type="text" placeholder="Confirmar Senha">
+            <button disabled type="button" class="signUpBtn" onclick="createAccount()">Cadastrar</button>
+            <span class="loginLink">
+                <p>Já possui uma conta ?</p>
+                <a>login</a>
+            </span>
+        </form>
+        <div class="otherSide">
+            <div class="messageContainer">
+                <h1>Bem vindo</h1>
+                <p>Insira seus dados e vamos começar.</p>
+            </div>
+        </div>
+    </div>
+    <div class="notificationContainer"></div>
+</body>
+
+<script src="index.js"></script>
+
+</html>
