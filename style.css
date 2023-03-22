@@ -13,7 +13,6 @@ body {
 
 .signUpContainer {
   display: flex;
-  justify-content: space-between;
   border-radius: 5px;
   width: 70%;
   height: 65%;
@@ -27,7 +26,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 50%;
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
 }
 
 .formContainer > h1 {
@@ -58,7 +57,7 @@ input:focus {
   box-shadow: 0 0 0 30px #fe494936 inset;
 }
 
-.signUpBtn {
+button {
   width: 75%;
   padding: 0.8rem 2rem;
   border-radius: 7px;
@@ -69,13 +68,24 @@ input:focus {
   cursor: pointer;
 }
 
-.signUpBtn:hover {
+button:hover {
   background-color: #333398ef;
 }
 
-.signUpBtn:disabled {
+button:disabled {
   background-color: #0000001f;
   color: #00000061;
+}
+
+.forgotPassword {
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  width: 75%;
+  margin: 0.5rem 0;
+  font-size: 14px;
+  color: #333398;
+  text-decoration: underline;
 }
 
 .loginLink {
@@ -94,9 +104,11 @@ input:focus {
 .otherSide {
   background-color: #333398;
   color: #fff;
-  width: 50%;
-  height: 100%;
-  border-radius: 0 5px 5px 0;
+  width: 35%;
+  height: 65%;
+  border-radius: 5px;
+  position: absolute;
+  right: 50%;
 }
 
 .messageContainer {
@@ -126,4 +138,36 @@ input:focus {
 .notificationContainer[success] {
   background-color: #00c8502e;
   color: #5cb85c;
+}
+
+.left {
+  animation: forwards 2s moveToLeft;
+}
+
+.right {
+  animation: forwards 2s moveToRight;
+}
+
+@keyframes moveToLeft {
+  from {
+    right: 15%;
+    border-radius: 0 5px 5px 0;
+  }
+
+  to {
+    right: 50%;
+    border-radius: 5px 0px 0px 5px;
+  }
+}
+
+@keyframes moveToRight {
+  from {
+    right: 50%;
+    border-radius: 5px 0px 0px 5px;
+  }
+
+  to {
+    right: 15%;
+    border-radius: 0 5px 5px 0;
+  }
 }

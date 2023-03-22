@@ -10,20 +10,39 @@
 </head>
 
 <body>
+    <!-- Trocar o nome da class signUpContainer -->
     <div class="signUpContainer">
-        <form onkeyup="formValidation()" class="formContainer">
+
+        <form onkeyup="signupFormValidation()" class="formContainer">
             <h1>Criar conta</h1>
-            <input id="name" type="text" placeholder="Nome">
-            <input id="email" type="email" placeholder="Email">
-            <input id="telephone" type="text" placeholder="Telefone" maxlength="16" onkeypress="telephoneMask()">
-            <input autocomplete="none" id="password" type="text" placeholder="Senha">
-            <input autocomplete="none" id="confirmPassword" type="text" placeholder="Confirmar Senha">
-            <button disabled type="button" class="signUpBtn" onclick="createAccount()">Cadastrar</button>
+            <input id="signupName" type="text" placeholder="Nome">
+            <input id="signupEmail" type="email" placeholder="Email">
+            <input id="signupTelephone" type="text" placeholder="Telefone" maxlength="16" onkeypress="telephoneMask()">
+            <input autocomplete="none" id="signupPassword" type="text" placeholder="Senha">
+            <input autocomplete="none" id="signupConfirmPassword" type="text" placeholder="Confirmar Senha">
+            <button disabled type="button" id="signUpBtn" onclick="createAccount()">Cadastrar</button>
+
             <span class="loginLink">
                 <p>Já possui uma conta ?</p>
-                <a>login</a>
+                <a onclick="formChange('left')">login</a>
             </span>
         </form>
+
+        <form onkeyup="loginFormValidation()" class="formContainer">
+            <h1>Login</h1>
+            <input id="loginEmail" type="email" placeholder="Email">
+            <input autocomplete="none" id="loginPassword" type="text" placeholder="Senha">
+            <span class="forgotPassword">
+                <a>Esqueceu sua senha ?</a>
+            </span>
+            <button disabled type="button" id="loginBtn" onclick="login()">Entrar</button>
+
+            <span class="loginLink">
+                <p>Não possui conta ainda ?</p>
+                <a onclick="formChange('right')">Cadastrar</a>
+            </span>
+        </form>
+
         <div class="otherSide">
             <div class="messageContainer">
                 <h1>Bem vindo</h1>
