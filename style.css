@@ -4,35 +4,46 @@ html {
 
 body {
   height: 100%;
+  padding: 3rem 0;
   margin: 0;
   display: grid;
   place-items: center;
   font-family: Roboto, sans-serif;
   font-weight: bold;
+  background-color: #333398;
+  overflow-x: hidden;
 }
 
 .signUpContainer {
   display: flex;
-  border-radius: 5px;
-  width: 70%;
-  height: 65%;
-  background-color: #fff;
-  box-shadow: 0px 1px 6px -1px #000000bf;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 50%;
+  width: 100%;
   padding: 1rem 0rem;
+  border-radius: 5px;
+  width: 45%;
+  background-color: #fff;
 }
 
-.formContainer > h1 {
+.formContainer>h1 {
   margin-bottom: 1rem;
   font-size: 30px;
   font-weight: bold;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 1rem 0;
+  display: none;
 }
 
 input {
@@ -42,7 +53,6 @@ input {
   padding: 0.7rem;
   margin: 0.5rem 0;
   width: 70%;
-  box-shadow: 0 0 0 30px #fff inset;
 }
 
 input:focus {
@@ -51,13 +61,39 @@ input:focus {
   transition: 0.5s;
 }
 
+.radioInputField {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radioInputField p {
+  width: 50%;
+}
+
+.radioInputField span {
+  display: flex;
+  align-items: center;
+}
+
+.radioInputField label {
+  margin-right: 10px
+}
+
+.radioInputField input {
+  width: 20px;
+  height: 20px;
+  accent-color: #333398;
+}
+
 .invalid {
   border: 2px solid #fe4a49;
   background-color: #fe494936;
   box-shadow: 0 0 0 30px #fe494936 inset;
 }
 
-button {
+.submitInput {
   width: 75%;
   padding: 0.8rem 2rem;
   border-radius: 7px;
@@ -68,14 +104,21 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.submitInput:hover {
   background-color: #333398ef;
 }
 
-button:disabled {
+.submitInput:disabled {
   background-color: #0000001f;
   color: #00000061;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 .forgotPassword {
   display: flex;
@@ -101,14 +144,8 @@ button:disabled {
   margin-left: 5px;
 }
 
-.otherSide {
-  background-color: #333398;
-  color: #fff;
-  width: 35%;
-  height: 65%;
-  border-radius: 5px;
-  position: absolute;
-  right: 50%;
+#loginForm {
+  display: none;
 }
 
 .messageContainer {
@@ -121,53 +158,76 @@ button:disabled {
 
 .notificationContainer {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 3%;
   right: 3%;
   border-radius: 5px;
   padding: 1rem;
   font-weight: normal;
   width: 20rem;
+  background-color: #fff;
 }
 
 .notificationContainer[error] {
-  background-color: #fe494936;
   color: #ff0000;
 }
 
 .notificationContainer[success] {
-  background-color: #00c8502e;
   color: #5cb85c;
 }
 
 .left {
-  animation: forwards 2s moveToLeft;
+  animation: forwards 1s moveToLeft;
+}
+
+.left2 {
+  animation: forwards 1s moveSignUpToLeft;
 }
 
 .right {
-  animation: forwards 2s moveToRight;
+  animation: forwards 1s moveToRight;
+}
+
+.right2 {
+  animation: forwards 1s moveSignUpToRight;
 }
 
 @keyframes moveToLeft {
   from {
-    right: 15%;
-    border-radius: 0 5px 5px 0;
+    transform: translateX(200%);
   }
 
   to {
-    right: 50%;
-    border-radius: 5px 0px 0px 5px;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveSignUpToLeft {
+  0% {
+    transform: translateX(50%);
+  }
+
+  100% {
+    transform: translateX(-190%);
   }
 }
 
 @keyframes moveToRight {
   from {
-    right: 50%;
-    border-radius: 5px 0px 0px 5px;
+    transform: translateX(-50%);
   }
 
   to {
-    right: 15%;
-    border-radius: 0 5px 5px 0;
+    transform: translateX(200%);
+  }
+}
+
+@keyframes moveSignUpToRight {
+  0% {
+    transform: translateX(-190%);
+  }
+
+  100% {
+    transform: translateX(50%);
   }
 }

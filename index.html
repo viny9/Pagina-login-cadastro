@@ -10,45 +10,80 @@
 </head>
 
 <body>
-    <!-- Trocar o nome da class signUpContainer -->
     <div class="signUpContainer">
-
-        <form onkeyup="signupFormValidation()" class="formContainer">
+        <form onkeyup="signupButtonDisable()" class="formContainer" id="signUp">
             <h1>Criar conta</h1>
-            <input id="signupName" type="text" placeholder="Nome">
+            <img src="" alt="" id="img" class="img">
+            <input type="file" accept="image/png, image/jpeg" onchange="addImg()" id="imgInput">
             <input id="signupEmail" type="email" placeholder="Email">
-            <input id="signupTelephone" type="text" placeholder="Telefone" maxlength="16" onkeypress="telephoneMask()">
+            <input id="signupName" type="text" placeholder="Nome">
+            <input id="signupAge" type="number" placeholder="Idade">
+            <input id="signupTelephone" type="text" placeholder="Telefone" maxlength="16" onkeyup="telephoneMask()">
+            <input id="signupSalary" type="number" placeholder="Salário">
+            <input id="signupObser" type="text" placeholder="Observação">
             <input autocomplete="none" id="signupPassword" type="text" placeholder="Senha">
             <input autocomplete="none" id="signupConfirmPassword" type="text" placeholder="Confirmar Senha">
-            <button disabled type="button" id="signUpBtn" onclick="createAccount()">Cadastrar</button>
+            <div class="radioInputField">
+                <p>Sexo: </p>
+                <span>
+                    <label for="sex">M</label>
+                    <input type="radio" name="sex" value="M" onchange="signupButtonDisable()">
+                </span>
+
+                <span>
+                    <label for="sex">F</label>
+                    <input type="radio" name="sex" value="F" onchange="signupButtonDisable()">
+                </span>
+            </div>
+
+            <div class="radioInputField">
+                <p>Você fuma ?</p>
+                <span>
+                    <label for="smoke">Sim</label>
+                    <input type="radio" name="smoke" id="smoke" value="Sim" onchange="signupButtonDisable()">
+                </span>
+
+                <span>
+                    <label for="smoke">Não</label>
+                    <input type="radio" name="smoke" id="smoke" value="Não" onchange="signupButtonDisable()">
+                </span>
+            </div>
+
+            <div class="radioInputField">
+                <p>Possui plano de saúde ?</p>
+                <span>
+                    <label for="planoSaude">Sim</label>
+                    <input type="radio" name="planoSaude" value="Sim" onchange="signupButtonDisable()">
+                </span>
+
+                <span>
+                    <label for="planoSaude">Não</label>
+                    <input type="radio" name="planoSaude" value="Não" onchange="signupButtonDisable()">
+                </span>
+            </div>
+
+            <input disabled class="submitInput" type="submit" id="signUpBtn">
 
             <span class="loginLink">
                 <p>Já possui uma conta ?</p>
-                <a onclick="formChange('left')">login</a>
+                <a onclick="changeForm('left')">login</a>
             </span>
         </form>
 
-        <form onkeyup="loginFormValidation()" class="formContainer">
+        <form onkeyup="loginButtonDisable()" class="formContainer" id="loginForm">
             <h1>Login</h1>
             <input id="loginEmail" type="email" placeholder="Email">
             <input autocomplete="none" id="loginPassword" type="text" placeholder="Senha">
             <span class="forgotPassword">
                 <a>Esqueceu sua senha ?</a>
             </span>
-            <button disabled type="button" id="loginBtn" onclick="login()">Entrar</button>
+            <input disabled class="submitInput" type="submit" id="loginBtn">
 
             <span class="loginLink">
                 <p>Não possui conta ainda ?</p>
-                <a onclick="formChange('right')">Cadastrar</a>
+                <a onclick="changeForm('right')">Cadastrar</a>
             </span>
-        </form>
-
-        <div class="otherSide">
-            <div class="messageContainer">
-                <h1>Bem vindo</h1>
-                <p>Insira seus dados e vamos começar.</p>
-            </div>
-        </div>
+        </form> 
     </div>
     <div class="notificationContainer"></div>
 </body>
