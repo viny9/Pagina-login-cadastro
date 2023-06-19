@@ -144,7 +144,7 @@ input::-webkit-inner-spin-button {
   margin-left: 5px;
 }
 
-#loginForm {
+.loginForm {
   display: none;
 }
 
@@ -176,29 +176,39 @@ input::-webkit-inner-spin-button {
   color: #5cb85c;
 }
 
-.left {
-  animation: forwards 1s moveToLeft;
+.showLogin {
+  animation: forwards 1s moveLoginToLeft;
 }
 
-.left2 {
-  animation: forwards 1s moveSignUpToLeft;
+.hideLogin {
+  animation: forwards 1s moveLoginToRight;
 }
 
-.right {
-  animation: forwards 1s moveToRight;
-}
-
-.right2 {
+.showSignUp {
   animation: forwards 1s moveSignUpToRight;
 }
 
-@keyframes moveToLeft {
+.hideSignUp {
+  animation: forwards 1s moveSignUpToLeft;
+}
+
+@keyframes moveLoginToLeft {
   from {
     transform: translateX(200%);
   }
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes moveLoginToRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(200%);
   }
 }
 
@@ -209,16 +219,6 @@ input::-webkit-inner-spin-button {
 
   100% {
     transform: translateX(-190%);
-  }
-}
-
-@keyframes moveToRight {
-  from {
-    transform: translateX(-50%);
-  }
-
-  to {
-    transform: translateX(200%);
   }
 }
 
